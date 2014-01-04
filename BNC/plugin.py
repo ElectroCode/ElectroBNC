@@ -71,10 +71,10 @@ class BNC(callbacks.Plugin):
         One BNC per person, if you want another network/server use !addserver // If you would like to remove your account use !remove // Not implemented at the present time, if you need to do either, highlight an op+"""
 #        dbpath = self.registryValue(dbpath)
         irc.queueMsg(ircmsgs.privmsg('\x23ElectroBNC', "Request relayed to staff channel. Info: Username: %s Server: %s Port: %s NetName: %s Email: %s // Please note that if you break the rules, your bnc will be removed with no hesitation." % (username, server, port, net, email)))
-        if irc.network == "ElectronIRC":
+        if irc.network == "ElectroCode":
             irc.queueMsg(ircmsgs.privmsg('\x23ElectroBNC-Relay', '!add %s %s %s %s %s' % (username, server, port, net, email)))
-        elif irc.network != "ElectronIRC":
-            otherIrc = self._getIrc("ElectronIRC")
+        elif irc.network != "ElectroCode":
+            otherIrc = self._getIrc("ElectroCode")
             otherIrc.queueMsg(ircmsgs.privmsg("\x23ElectroBNC-Relay", "!add %s %s %s %s %s" % (username, server, port, net, email)))
     request = wrap(request, ['something', 'something', 'something', 'something', 'something'])
     def nets(self, irc, msg, args):
@@ -84,7 +84,7 @@ class BNC(callbacks.Plugin):
         """Returns list of current Staff of ElectroBNC"""
         iota = "Iota - Owner and founder, and a bit of a wacko."
         don = "DonVitoCorleone - Token Serbian xD jk.. Advisor, Plugin helper"
-        gl = "GL(GLolol) - Staff in training, Soon to be Support Admin, and is 'Derp of the world'"
+        gl = "GLolol - Staffy Staff, Support Admin, and is 'Derp of the world'"
         irc.sendMsg(ircmsgs.privmsg('\x23ElectroBNC', '%s // %s // %s' % (iota, don, gl)))
     staff = wrap(staff)
 Class = BNC
