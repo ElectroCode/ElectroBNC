@@ -1,2 +1,2 @@
-FurryBNC
+ElectroBNC
 ========
